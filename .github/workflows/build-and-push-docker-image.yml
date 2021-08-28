@@ -1,6 +1,6 @@
 name: Build And Push Docker Image
 
-on: workflow_dispatch
+on: [workflow_dispatch, push]
 
 env:
   IMAGE_NAME: hagb/docker-easyconnect
@@ -22,6 +22,7 @@ jobs:
 
       - name: Build Docker image
         run: |
+          
           docker build -t ${{ env.IMAGE_NAME }}:cli --build-arg BUILD_ENV=actions -f Dockerfile.cli .
 
           docker build -t ${{ env.IMAGE_NAME }}:7.6.3 --build-arg BUILD_ENV=actions --build-arg EC_URL=$(cat ec_urls/7.6.3.txt) -f Dockerfile .
