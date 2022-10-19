@@ -3,7 +3,7 @@ name: Build And Push Docker Image
 on: workflow_dispatch
 
 env:
-  IMAGE_NAME: hagb/docker-easyconnect
+  IMAGE_NAME: bluexiii/docker-easyconnect
 
 jobs:
   build:
